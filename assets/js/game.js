@@ -1,16 +1,26 @@
+// Game States
+// "WIN" - Player robot has defeated all enemy-robots
+//    * Fight all enemy-robots
+//    * Defeat each enemy-robot
+// "LOSE" - Player robot's health is zero or less
+
 var playerName = window.prompt("What is your robot's name?");
 var playerHealth = 100;
 var playerAttack = 10;
 var playerMoney = 10;
 
-// You can also log multiple values at once like this
-console.log(playerName, playerAttack, playerHealth);
-
-var enemyName = "Roborto";
+var enemyNames = ["Roborto", "Amy Android", "Robo Trumble"];
 var enemyHealth = 50;
 var enemyAttack = 12;
 
-var fight = function() {
+console.log(playerName, playerAttack, playerHealth);
+console.log(enemyNames);
+console.log(enemyNames.length);
+console.log(enemyNames[0]);
+console.log(enemyNames[3]);
+
+
+var fight = function(enemyName) {
     // Alert players that they are starting the round
     window.alert("Welcome to Robot Gladiators!");
 
@@ -21,7 +31,7 @@ var fight = function() {
 
     // Log a resulting message to the console so we know that it worked.
     console.log(
-        enemyName + " attacked " + playerName + ". " + playerName + " now has " + playerHealth + " health remaining."
+      enemyName + " attacked " + playerName + ". " + playerName + " now has " + playerHealth + " health remaining."
     );
 
     //Check Players Health
@@ -43,7 +53,7 @@ if (promptFight === "fight" || promptFight === "FIGHT") {
   
     // check enemy's health
     if (enemyHealth <= 0) {
-      window.alert(enemyName + " has died!");
+      window.alert( + " has died!");
     } else {
       window.alert(enemyName + " still has " + enemyHealth + " health left.");
     }
@@ -76,7 +86,11 @@ if (promptFight === "fight" || promptFight === "FIGHT") {
             fight();
         }
 
-
+   for(var i = 0; i < enemyNames.length; i++) {
+       console.log(enemyNames[i]);
+       console.log(i);
+       console.log(enemyNames[i] + "is at" + i + "index");
+     }
 
 
     window.alert(playerName + " has chosen to skip the fight!");
@@ -87,4 +101,6 @@ if (promptFight === "fight" || promptFight === "FIGHT") {
   
   };
 
-fight();
+for(var i = 0; i < enemyNames.length; i++){
+  fight(enemyNames[i]);
+}
